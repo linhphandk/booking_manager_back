@@ -1,8 +1,8 @@
 import {MongoMemoryServer} from 'mongodb-memory-server';
 import mongoose from 'mongoose';
-require('dotenv').config();
 
 export = async function globalSetup() {
+  require('dotenv').config();
   const instance = await MongoMemoryServer.create();
   const uri = instance.getUri();
   (global as any).__MONGOINSTANCE = instance;

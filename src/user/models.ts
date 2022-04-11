@@ -11,8 +11,15 @@ interface IBaseUser {
     password: string;
   }
 const baseUserSchema = new mongoose.Schema<IBaseUser>({
-  username: String,
-  password: String,
+  username: {
+    type: String,
+    minlength: 6,
+    unique: true,
+  },
+  password: {
+    type: String,
+    minlength: 6,
+  },
 });
 baseUserSchema.pre('save', function(next) {
   const user = this;

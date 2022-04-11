@@ -6,6 +6,7 @@ import {
   unprotectedRouter as unprotectedEchoRouter,
   protectedRouter as protectedEchoRouter,
 } from './echo/router';
+import {unprotectedManagerRouter} from './user/router';
 
 require('dotenv').config();
 const SECRET = process.env.JWT_SECRET;
@@ -15,9 +16,10 @@ if (!SECRET) {
 
 const app = new Koa();
 
-app.use(bodyParser({}));
+app.use(bodyParser());
 
 app.use(unprotectedEchoRouter.routes());
+app.use(unprotectedManagerRouter.routes());
 
 app.use(jwt({secret: 'shared-secret'}));
 

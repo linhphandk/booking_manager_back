@@ -6,8 +6,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      env:
-        JWT_SECRET: ${{ secrets.JWT_SECRET }}
       - uses: actions/checkout@v2
       - name: Use Node.js
         uses: actions/setup-node@v2
@@ -18,4 +16,6 @@ jobs:
       - name: Run lint
         run: npm run lint
       - name: Run test
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
         run: npm test

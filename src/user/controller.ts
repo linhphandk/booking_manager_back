@@ -34,5 +34,12 @@ unprotectedRouter.post('/', async (ctx)=>{
       username: res.username,
     };
     ctx.status = StatusCodes.CREATED;
+  }).catch((e)=>{
+    if (e.code === 11000) {
+      ctx.status = StatusCodes.CONFLICT;
+      ctx.body = e.keyValue;
+      console.log(ctx.body);
+      return;
+    }
   });
 });

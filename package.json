@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node ./src/server.ts",
+    "start": "nodemon ./src/server.ts",
     "test": "jest --runInBand",
     "lint": "eslint ./src/*.ts ./src/**/*.ts"
   },
@@ -32,6 +32,7 @@
     "koa-jwt": "^4.0.3",
     "mongodb-memory-server": "^8.4.2",
     "mongoose": "^6.2.10",
+    "nodemon": "^2.0.15",
     "supertest": "^6.2.2",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",

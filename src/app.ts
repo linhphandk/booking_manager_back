@@ -18,8 +18,7 @@ const app = new Koa();
 app.use(bodyParser({}));
 
 app.use(unprotectedEchoRouter.routes());
-
-app.use(jwt({secret: 'shared-secret'}));
+app.use(jwt({secret: SECRET}));
 
 app.use(protectedEchoRouter.routes());
 
